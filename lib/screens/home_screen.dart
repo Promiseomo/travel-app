@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.bookmark),
-              title: const Text("Bookmarks"),
+              title: const Text("Bookmarkings"),
               onTap: () {
                 Navigator.push(
                   context,
@@ -181,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               radius: 20,
                             ),
-                           
+                            
                           ],
                         ),
                         const SizedBox(height: 20),
@@ -286,6 +286,44 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ],
+      ),
+
+      // ✅ BOTTOM NAVIGATION BAR WITH HOME, BOOKMARK, AND SETTINGS ICONS
+      bottomNavigationBar: BottomAppBar(
+        height: 70,
+        padding: EdgeInsets.zero,
+        shape: const CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.home, size: 20),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
+              color: const Color(0xFF3366FF),
+            ),
+            IconButton(
+              icon: const Icon(Icons.bookmark, size: 20),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BookmarksScreen()),
+                );
+              },
+              color: Colors.grey,
+            ),
+            IconButton(
+              icon: const Icon(Icons.settings, size: 20),
+              onPressed: () {},
+              color: Colors.grey,
+            ),
+          ],
+        ),
       ),
     );
   }
